@@ -6,23 +6,27 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const client = await db.connect();
+  // console.log("request body is => ", req.body);
+  const { body } = req;
+  console.log("body is => ", { body });
   try {
-    await client.sql`DROP TABLE IF EXISTS testing`;
-    await client.sql`CREATE TABLE IF NOT EXISTS testing (Name varchar(100), Age int)`;
-    const names = [
-      {
-        name: "biruk",
-        age: 24,
-      },
-      {
-        name: "Ermiyas",
-        age: 21,
-      },
-    ];
+    client.sql`insert into testing (Name, Age) values (${body.name}, ${parseInt(
+      body.age
+    )})`;
+    // const names = [
+    //   {
+    //     name: "biruk",
+    //     age: 24,
+    //   },
+    //   {
+    //     name: "Ermiyas",
+    //     age: 21,
+    //   },
+    // ];
 
-    names.map(({ name, age }: any) => {
-      client.sql`insert into testing (Name, Age) values (${name}, ${age})`;
-    });
+    // names.map(({ name, age }: any) => {
+    //   client.sql`insert into testing (Name, Age) values (${name}, ${age})`;
+    // });
   } catch (error) {
     return res.status(500).json({ error });
   }
