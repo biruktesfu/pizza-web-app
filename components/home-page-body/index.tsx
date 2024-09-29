@@ -11,7 +11,9 @@ import { SearchOutlined } from "@mui/icons-material";
 import { Pizza } from "../pizza";
 import { RestaurantInfo } from "../restaurant-info";
 
-type Iprops = {};
+type Iprops = {
+  onclickLogin: () => void;
+};
 export const HomePageBody: FC<Iprops> = (props) => {
   return (
     <div className={styles.outerContainer}>
@@ -66,22 +68,14 @@ export const HomePageBody: FC<Iprops> = (props) => {
             <div className={styles.popularContainer}>
               <p className={styles.blockLabel}>Popular Pizzas</p>
               <div className={styles.blockInfoContainer}>
-                <Pizza />
-                <Pizza />
-                <Pizza />
-                <Pizza />
-                <Pizza />
+                <Pizza onclick={props.onclickLogin} id={2} />
               </div>
             </div>
 
             <div className={styles.fastingContainer}>
               <p className={styles.blockLabel}>Fasting</p>
               <div className={styles.blockInfoContainer}>
-                <Pizza />
-                <Pizza />
-                <Pizza />
-                <Pizza />
-                <Pizza />
+                <Pizza onclick={props.onclickLogin} id={1} />
               </div>
             </div>
           </div>

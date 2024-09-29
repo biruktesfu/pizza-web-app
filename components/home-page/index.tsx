@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Header, HomePageBody } from "@/components";
+import { Footer, Header, HomePageBody } from "@/components";
 
 type Iprops = {
   onClickLogin: () => void;
@@ -11,7 +11,10 @@ export const Homepage: FC<Iprops> = (props) => {
         <Header isloggedin={false} onclickLogin={props.onClickLogin} />
       </div>
       <div>
-        <HomePageBody />
+        <HomePageBody onclickLogin={props.onClickLogin} />
+      </div>
+      <div>
+        <Footer onclickLogin={props.onClickLogin} />
       </div>
     </div>
   );

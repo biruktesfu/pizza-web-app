@@ -8,6 +8,8 @@ export { Login } from "./login/index";
 
 export { Header } from "./header/index";
 
+export { Footer } from "./footer/index";
+
 export { MaterialTable } from "./material-table/index";
 
 export { AdminNavbar } from "./admin-navbar/index";

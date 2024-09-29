@@ -4,8 +4,10 @@ import jwt from "jsonwebtoken";
 import axios from "axios";
 import cryptojs from "crypto-js";
 import { Backdrop, CircularProgress } from "@mui/material";
+import { useRouter } from "next/router";
 
 export const Protect = ({ children }: any) => {
+  const router = useRouter();
   const [isloggedin, setisloggedin] = useState<null | boolean>(null);
   const [showLogin, setshowlogin] = useState(false);
   const [open, setOpen] = useState(false);
@@ -25,11 +27,20 @@ export const Protect = ({ children }: any) => {
         request_type: "login",
       })
       .then(({ data }) => {
-        setOpen(false);
-        localStorage.setItem("user", data.email);
-        localStorage.setItem("token", "replace this with token");
-        console.log({ data });
-        setisloggedin(true);
+        if (data.restaurant_admin && data.restaurant_admin === true) {
+          setOpen(false);
+          localStorage.setItem("restaurant_admin", "true");
+          localStorage.setItem("user", data.email);
+          localStorage.setItem("token", "replace this with token");
+          router.push("/admin/orders");
+          setisloggedin(true);
+        } else {
+          setOpen(false);
+          localStorage.setItem("user", data.email);
+          localStorage.setItem("token", "replace this with token");
+          setisloggedin(true);
+          router.push("/");
+        }
       })
       .catch((error) => {
         setisloggedin(false);
