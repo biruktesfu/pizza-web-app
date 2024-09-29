@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 20px;
+  width: 100%;
+  min-width: 600px;
+  padding: 10px;
+}
+.imageContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.pizzaName {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.restaurantInfo {
+  color: rgb(87, 87, 87);
+}
+
+.orderCountContainer {
+  display: flex;
+  background-color: rgb(240, 250, 243);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 250px;
+  justify-content: center;
+  align-items: center;
+}
+.orderCountInnerContainer {
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+}
+
+.numberOfOrder {
+  font-size: 14px;
+  color: grey;
+}
+
+.orderCount {
+  color: orangered;
+  font-size: 40px;
+  margin-top: -10px;
+  font-weight: 700;
+}

@@ -1,13 +1,19 @@
-import { Login } from "@/components";
-import { useState } from "react";
+import { Homepage, Login } from "@/components";
+import { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import axios from "axios";
+import cryptojs from "crypto-js";
+import { Backdrop, CircularProgress } from "@mui/material";
 
 export const Protect = ({ children }: any) => {
-  const [isloggedin, setisloggedin] = useState(false);
+  const [isloggedin, setisloggedin] = useState<null | boolean>(null);
+  const [showLogin, setshowlogin] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const onSubmit = (event: any) => {
     event.preventDefault();
+    setOpen(true);
+    const hash_key = (process.env.NEXT_PUBLIC_HASH_KEY as string) || "";
     const { email: tempEmail, password: tempPassword } = event.target;
     const email = tempEmail.value;
     const password = tempPassword.value;
@@ -18,15 +24,48 @@ export const Protect = ({ children }: any) => {
         password,
         request_type: "login",
       })
-      .then((val) => {
-        console.log({ val });
+      .then(({ data }) => {
+        setOpen(false);
+        localStorage.setItem("user", data.email);
+        localStorage.setItem("token", "replace this with token");
+        console.log({ data });
+        setisloggedin(true);
       })
       .catch((error) => {
-        console.log("whoops login");
+        setisloggedin(false);
+        setOpen(false);
+        console.log({ error });
       });
   };
-  if (true) {
-    return <Login onSubmit={onSubmit} />;
+  useEffect(() => {
+    if (localStorage) {
+      if (localStorage.getItem("user") && localStorage.getItem("token")) {
+        setisloggedin(true);
+      } else {
+        setisloggedin(false);
+      }
+    }
+  }, []);
+
+  if (isloggedin === null) {
+    return <>loading...</>;
+  } else if (isloggedin === false) {
+    return showLogin ? (
+      <>
+        <Backdrop
+          open={open}
+          sx={(theme) => ({
+            color: "#fff",
+            zIndex: theme.zIndex.drawer + 1,
+          })}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+        <Login onSubmit={onSubmit} />
+      </>
+    ) : (
+      <Homepage onClickLogin={() => setshowlogin(true)} />
+    );
   } else {
     return <>{children}</>;
   }

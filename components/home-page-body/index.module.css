@@ -1,0 +1,104 @@
+.outerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #fff8f1;
+}
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+.orderus {
+  font-size: 150px;
+  font-weight: 700;
+  background: linear-gradient(to right, orangered, white);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.informationUpper {
+  display: flex;
+}
+
+.informationBottomOuter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -200px;
+}
+
+.informationBottom {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.orderusinfo {
+  font-size: 20px;
+  font-weight: 500;
+  padding-bottom: 30px;
+}
+
+.searchbar {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 50px;
+  max-width: 400px;
+  padding: 20px 0;
+  padding: 10px;
+}
+
+.textInformation {
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+}
+.textInformationContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+.image {
+  height: 1000px;
+  width: 1000px;
+  margin-right: -300px;
+}
+
+.textInput {
+  width: 100%;
+  max-width: 300px;
+  outline: none;
+  font-size: 20px;
+}
+
+.blockLabel {
+  font-size: 40px;
+  padding: 10px 0;
+}
+
+.topRestaurantsContainer {
+  padding: 100px 0;
+}
+
+.restaurantInfoContainer {
+  display: flex;
+  overflow: auto;
+  gap: 20px;
+}
+.restaurantInfoContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.popularContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 40px 0;
+}
+
+.fastingContainer {
+  display: flex;
+  flex-direction: column;
+}
