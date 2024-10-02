@@ -58,3 +58,18 @@
   font-size: 20px;
   font-weight: 700;
 }
+
+@media screen and (max-width: 1200px) {
+}
+@media screen and (max-width: 760px) {
+  .container {
+    min-width: 200px;
+  }
+
+  .amount {
+    font-size: 30px;
+  }
+  .button {
+    width: 100px;
+  }
+}

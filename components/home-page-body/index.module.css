@@ -102,3 +102,54 @@
   display: flex;
   flex-direction: column;
 }
+
+@media screen and (max-width: 1200px) {
+  .outerContainer {
+    padding-left: 10px;
+  }
+  .informationBottomOuter {
+    padding: 0 10px;
+  }
+  .orderus {
+    font-size: 100px;
+  }
+  .orderusinfo {
+    font-size: 16px;
+  }
+  .image {
+    height: 700px;
+    width: 700px;
+    margin-right: -200px;
+  }
+  .blockLabel {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .outerContainer {
+    padding: 0 10px;
+  }
+  .textInformationContainer {
+    padding-top: 20px;
+  }
+
+  .informationBottomOuter {
+    padding: 0 10px;
+  }
+  .textInformation {
+    height: 500px;
+  }
+  .orderus {
+    font-size: 40px;
+  }
+  .image {
+    display: none;
+    height: 400px;
+    width: 400px;
+    margin-right: -100px;
+    padding-top: 50px;
+  }
+  .blockLabel {
+    font-size: 20px;
+  }
+}

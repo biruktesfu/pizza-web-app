@@ -66,3 +66,9 @@
   justify-content: space-around;
   min-width: 200px;
 }
+
+@media screen and (max-width: 750px) {
+  .container {
+    display: none;
+  }
+}

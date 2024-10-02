@@ -80,7 +80,7 @@ export const AdminNavbar = ({ children }: any) => {
         title: "MUI",
       }}
       router={router}
-      theme={demoTheme}
+      // theme={demoTheme}
     >
       <DashboardLayout>{children}</DashboardLayout>
     </AppProvider>

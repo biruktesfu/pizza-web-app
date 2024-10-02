@@ -97,7 +97,7 @@ export const Header: FC<Iprops> = ({ isloggedin, onclickLogin }) => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <MailIcon />
@@ -116,7 +116,7 @@ export const Header: FC<Iprops> = ({ isloggedin, onclickLogin }) => {
           </Badge>
         </IconButton>
         <p>Notifications</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -135,22 +135,27 @@ export const Header: FC<Iprops> = ({ isloggedin, onclickLogin }) => {
   );
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        className={styles.appBar}
+        style={{ backgroundColor: "#FFF8F1" }}
+      >
         <Toolbar>
           <Typography
+            color="black"
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            Pizza
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           {isloggedin && (
             <>
               {" "}
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <IconButton
+                {/* <IconButton
                   size="large"
                   aria-label="show 4 new mails"
                   color="inherit"
@@ -167,8 +172,9 @@ export const Header: FC<Iprops> = ({ isloggedin, onclickLogin }) => {
                   <Badge badgeContent={17} color="error">
                     <NotificationsIcon />
                   </Badge>
-                </IconButton>
+                </IconButton> */}
                 <IconButton
+                  style={{ color: "black" }}
                   size="large"
                   edge="end"
                   aria-label="account of current user"
@@ -181,6 +187,7 @@ export const Header: FC<Iprops> = ({ isloggedin, onclickLogin }) => {
               </Box>
               <Box sx={{ display: { xs: "flex", md: "none" } }}>
                 <IconButton
+                  style={{ color: "black" }}
                   size="large"
                   aria-label="show more"
                   aria-controls={mobileMenuId}

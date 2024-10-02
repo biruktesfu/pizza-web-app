@@ -69,6 +69,8 @@ export const HomePageBody: FC<Iprops> = (props) => {
               <p className={styles.blockLabel}>Popular Pizzas</p>
               <div className={styles.blockInfoContainer}>
                 <Pizza onclick={props.onclickLogin} id={2} />
+                <Pizza onclick={props.onclickLogin} id={3} />
+                <Pizza onclick={props.onclickLogin} id={4} />
               </div>
             </div>
 
@@ -76,6 +78,8 @@ export const HomePageBody: FC<Iprops> = (props) => {
               <p className={styles.blockLabel}>Fasting</p>
               <div className={styles.blockInfoContainer}>
                 <Pizza onclick={props.onclickLogin} id={1} />
+                <Pizza onclick={props.onclickLogin} id={5} />
+                <Pizza onclick={props.onclickLogin} id={6} />
               </div>
             </div>
           </div>
